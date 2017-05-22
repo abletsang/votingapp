@@ -12,7 +12,13 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/pulic"));
 app.use(methodOverride("_method"));
 
+// require/link routes ========================================================================
+var indexRoutes = require("./routes/index");
+
+
+app.use(indexRoutes);
+
 // start server =============================================================================
-app.listen(8080, function() {
+app.listen(3000, function() {
 	console.log("start!");
 });
