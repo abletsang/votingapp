@@ -4,4 +4,12 @@
 
 <a href="/polls/new">Create New Poll</a>
 
+<% polls.forEach(function(poll) { %>
+	<h4><%= poll.name %></h4>
+	<% for (var i = 0; i < poll.options.length; i++) { %>
+	<li><%= poll.options[i]; %></li>
+	<% } %>
+<% }) %>
+
+
 <% include ../partials/footer %>
