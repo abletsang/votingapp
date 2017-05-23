@@ -4,7 +4,8 @@ var express = require("express"),
 	passport = require("passport"),
 	LocalStrategy = require("passport-local"),
 	methodOverride = require("method-override"),
-	User = require("./models/user");
+	User = require("./models/user"),
+	Poll = require("./models/polls");
 
 var app = express();
 mongoose.connect("mongodb://localhost/votingapp");
@@ -33,9 +34,11 @@ passport.deserializeUser(User.deserializeUser());
 
 // require/link routes ========================================================================
 var indexRoutes = require("./routes/index");
+var pollRoutes = require("./routes/polls");
 
 
 app.use(indexRoutes);
+app.use(pollRoutes);
 
 // start server =============================================================================
 app.listen(3000, function() {
